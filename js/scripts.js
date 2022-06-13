@@ -14,9 +14,9 @@ let types = []
 let heights = []
 
 for (let i=0; i < pokemonList.length; i++) {
-   names += pokemonList[i].name + "\n";
-   types += pokemonList[i].type  + "\n";
-   heights += pokemonList[i].height + "\n";
+   names += pokemonList[i].name + " ";
+   types += pokemonList[i].type  + " ";
+   heights += pokemonList[i].height + " ";
 }
 
 document.write(names);
