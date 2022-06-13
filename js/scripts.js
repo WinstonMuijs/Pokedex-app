@@ -9,16 +9,10 @@ const pokemonList = [
   pokemon1, pokemon2, pokemon3
 ];
 
-let names = []
-let types = []
-let heights = []
 
 for (let i=0; i < pokemonList.length; i++) {
-   names += pokemonList[i].name + " ";
-   types += pokemonList[i].type  + " ";
-   heights += pokemonList[i].height + " ";
+   let name = pokemonList[i].name + " ";
+   let type = pokemonList[i].type  + " ";
+   let height = pokemonList[i].height + " ";
+   document.write(`Name: ${name} Type: ${type} Height: ${height}<br>`)
 }
-
-document.write(names);
-document.write(types);
-document.write(heights);
