@@ -1,20 +1,21 @@
+/* General rules for document */
 * {
   box-sizing: border-box;
 }
-
+/* body */
 body {
   background-color: #000;
   color: #fff;
 }
-
+/* container for code */
 .pokemon-container {
   text-align: center;
 }
-
+/* header */
 .pokemon-header {
   color: red;
 }
-
+/* subheader */
 h2 {
   color: yellow;
 }
