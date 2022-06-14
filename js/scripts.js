@@ -11,8 +11,14 @@ const pokemonList = [
 
 
 for (let i=0; i < pokemonList.length; i++) {
-   let name = pokemonList[i].name + " ";
-   let type = pokemonList[i].type  + " ";
-   let height = pokemonList[i].height + " ";
-   document.write(`Name: ${name} Type: ${type} Height: ${height}<br>`)
+  let name = pokemonList[i].name;
+  let type = pokemonList[i].type;
+  let height = pokemonList[i].height;
+  if(height <= 2){
+    document.write("<hr>");
+    document.write(`Name: ${name}<br> Type: ${type} <br> Height: ${height}<br>`);
+  } else{
+    document.write("<hr>");
+    document.write(`Name: ${name}<br> Type: ${type} <br> Height: ${height} --> Wow Thats Big!!! <br>`)
+  }
 }
