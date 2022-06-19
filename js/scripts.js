@@ -9,23 +9,10 @@ const pokemonList = [
   pokemon1, pokemon2, pokemon3
 ];
 
-// loop over array of variables to get the properties of the objects in variables
-for (let i=0; i < pokemonList.length; i++) {
-  // objects name
-  let name = pokemonList[i].name;
-  // objects Type
-  let type = pokemonList[i].type;
-  // objects height
-  let height = pokemonList[i].height;
-  // if height is less or equal to 2
-  if(height <= 2){
-    // then write on document
-    document.write("<hr>");
-    document.write(`Name: ${name}<br> Type: ${type} <br> Height: ${height}<br>`);
-    // if height higher then 2
-  } else{
-    // write on document
-    document.write("<hr>");
-    document.write(`Name: ${name}<br> Type: ${type} <br> Height: ${height} --> Wow Thats Big!! <br>`)
-  }
-}
+pokemonList.forEach(function(item){
+  document.write("<hr>");
+  Object.keys(item).forEach(function(property){
+    document.write(item[property] + "<br>")
+  });
+
+});
