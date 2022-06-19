@@ -28,17 +28,16 @@ let pokemonRepository = (function () {
 
 //forEach function to get all pokemons on the list, checks the keys and write them to the html document.
 pokemonRepository.getAll().forEach(function(pokemon){
- document.write("<hr>");
- Object.keys(pokemon).forEach(function(property){
-   if(property === 'name' && pokemon[property] !=''){
-     document.write("Name is: " + "<h3 style='color:yellow;'>" + pokemon[property] + "</h3>");
-   }else if(property === 'type' && pokemon[property] != []){
-     document.write("<p style ='color:lightblue;'>" + "Type is: " + pokemon[property] + "</p>");
-   }else if(property === 'height' && pokemon[property] > 0){
-     document.write("<p style = 'color:lightgreen;'>"+ "Height is: " + pokemon[property] + "</p>");
-   }else{
-     document.write("Check your properties!")
-   }
- });
-
+  document.write("<hr>");
+  Object.keys(pokemon).forEach(function(property){
+    if(property === 'name' && pokemon[property] !=''){
+      document.write("Name is: " + "<h3 style='color:yellow;'>" + pokemon[property] + "</h3>");
+    }else if(property === 'type' && pokemon[property] != []){
+      document.write("<p style ='color:lightblue;'>" + "Type is: " + pokemon[property] + "</p>");
+    }else if(property === 'height' && pokemon[property] > 0){
+      document.write("<p style = 'color:lightgreen;'>"+ "Height is: " + pokemon[property] + "</p>");
+    }else{
+      document.write("Check your properties!")
+    }
+  });
 });
