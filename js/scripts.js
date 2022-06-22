@@ -11,11 +11,7 @@ let pokemonRepository = (function () {
   let pokemonList = [pokemon1, pokemon2, pokemon3];
 
   function add(pokemon) {
-    if(typeof pokemon === 'object'){
-      pokemonList.push(pokemon);
-    }else{
-      document.write("It's not a Pokemon");
-    }
+    pokemonList.push(pokemon);
   }
 
   function getAll() {
