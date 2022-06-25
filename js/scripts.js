@@ -16,14 +16,26 @@ let pokemonRepository = (function () {
 
   function showDetails(pokemon){
     loadDetails(pokemon).then(function () {
-      console.log(pokemon);
-    });
+    console.log(pokemon);
+     });
   }
 
   function addEvent(button, pokemon){
     button.addEventListener('click', function(){
       showDetails(pokemon);
     });
+  }
+
+  function showLoadingMessage(){
+    let loadingMessage = document.querySelector('.container');
+    let paragraph = document.createElement('p');
+    paragraph.innerText = 'THe Pokemon are Loading';
+    loadingMessage.appendChild(paragraph);
+  }
+
+  function hideLoadingMessage(){
+    let elementToRemove = document.querySelector('p');
+    elementToRemove.parentElement.removeChild(elementToRemove);
   }
 
   function addListItems(pokemon){
@@ -38,9 +50,11 @@ let pokemonRepository = (function () {
   }
 
   function loadList() {
+    showLoadingMessage();
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
+      hideLoadingMessage();
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
@@ -49,31 +63,36 @@ let pokemonRepository = (function () {
         add(pokemon);
       });
     }).catch(function (e) {
+      hideLoadingMessage();
       console.error(e);
     })
   }
 
   function loadDetails(item) {
+    showLoadingMessage();
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
+      hideLoadingMessage();
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = details.types;
     }).catch(function (e) {
+      hideLoadingMessage();
       console.error(e);
     });
   }
+
 
 
   return {
     add: add,
     addListItems: addListItems,
     getAll: getAll,
+    showDetails: showDetails,
     loadList: loadList,
-    showDetails: showDetails
-
+    loadDetails: loadDetails
 
 
   };
