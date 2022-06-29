@@ -87,12 +87,11 @@ function showModal(pokemon) {
   let contentElement = document.createElement('p');
   //Items of Pokemon
   contentElement.innerHTML = "Height: "+pokemon.height+"<br>";
-  //..and types
   let types = [];
   pokemon.types.forEach(function(type){
     types.push(" "+type.type.name);
   });
-  //one or multiple types?
+  //types one or many
   if (types.length<2) {
     contentElement.innerHTML += "Type:";
   } else {
