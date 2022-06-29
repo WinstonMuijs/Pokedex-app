@@ -13,21 +13,20 @@
   <!--  end head -->
   <!-- start body -->
   <body>
-    <!-- container -->
-    <div class="pokemon-container">
-      <!-- logo -->
+    <header>
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pokémon_logo.svg">
-        <!-- second header -->
-      <h1>The Pokemons</h1>
-      <div class="container"</div>
-      <p class="loadingMessage">Loading the Pokemons</p>
-      <ul class="pokemon-List"></ul>
-      <!-- js script with html code inside -->
+    </header>
+    <main>
+      <div class="pokemon-container">
+        <h1 class='title'>The Pokemons</h1>
+        <ul class="pokemon-List"></ul>
+      </div>
+      <div id='modal-container'></div>
+    </main>
 
       <script src="js/promise-polyfill.js"></script>
       <script src="js/fetch-polyfill.js"></script>
       <script src="js/scripts.js"></script>
-    </div>
   </body>
   <!-- end body -->
 </html>
