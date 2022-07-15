@@ -14,6 +14,25 @@ let pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
+
+  function showLoader(){
+    let loader = document.querySelector('.pokeball');
+    loader.classList.remove('hide');
+    let pokList = document.querySelector('.pokemon-List');
+    pokList.classList.add('hide');
+  }
+
+
+  function hideMessage(){
+    setTimeout(function(){
+        let loader = document.querySelector('.pokeball');
+        loader.classList.add('hide');
+    },1000);
+    setTimeout(function(){
+        let pokList = document.querySelector('.pokemon-List');
+        pokList.classList.remove('hide');
+    },2000);
+  }
 //Shows the details of pokemonObjects
   function showDetails(pokemon){
     loadDetails(pokemon).then(function () {
@@ -39,10 +58,12 @@ let pokemonRepository = (function () {
     addEvent(button, pokemon);
   }
 
-  function loadList() {
+  function loadList(){
+    showLoader();
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
+      hideMessage();
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
@@ -51,19 +72,24 @@ let pokemonRepository = (function () {
         add(pokemon);
       });
     }).catch(function (e) {
+      hideMessage();
       console.error(e);
     })
   }
 
   function loadDetails(item) {
+    showLoader();
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
-      item.imageUrl = details.sprites.front_default;
+      hideMessage();
+      item.imageUrl = details.sprites.front_shiny;
       item.height = details.height;
       item.types = details.types;
+      item.weight = details.weight;
     }).catch(function (e) {
+      hideMessage();
       console.error(e);
     });
   }
@@ -87,6 +113,7 @@ function showModal(pokemon) {
   let contentElement = document.createElement('p');
   //Items of Pokemon
   contentElement.innerHTML = "Height: "+pokemon.height+"<br>";
+  contentElement.innerHTML += "Weight: "+pokemon.weight+"<br>"
   let types = [];
   pokemon.types.forEach(function(type){
     types.push(" "+type.type.name);
@@ -170,7 +197,9 @@ function swipe(pokemon) {
     getAll: getAll,
     showDetails: showDetails,
     loadList: loadList,
-    loadDetails: loadDetails
+    loadDetails: loadDetails,
+    showLoader:showLoader,
+    hideMessage:hideMessage
 
 
   };
