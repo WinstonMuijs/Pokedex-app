@@ -48,6 +48,15 @@ body {
   color: #fff;
 }
 
+.pokeball{
+    width: 300px;
+    height: 300px;
+}
+
+.hide{
+    display: none
+}
+
 #modal-container{
   display: none;
 }
