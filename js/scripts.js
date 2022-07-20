@@ -48,11 +48,13 @@ let pokemonRepository = (function () {
 
 
   function addListItems(pokemon){
-    let pokemonNewList = document.querySelector('ul');
+    let pokemonNewList = document.querySelector('.pokemon-List');
     let listItem = document.createElement('li');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
     button.classList.add('btn');
+    button.classList.add('btn-block')
+    listItem.classList.add('group-list-item')
     listItem.appendChild(button);
     pokemonNewList.appendChild(listItem);
     addEvent(button, pokemon);
@@ -108,6 +110,7 @@ function showModal(pokemon) {
 
   //Pokemon name as title
   let titleElement = document.createElement('h1');
+  titleElement.classList.add('display-1')
   titleElement.innerText = pokemon.name;
 
   let contentElement = document.createElement('p');
