@@ -146,11 +146,11 @@ function showModal(pokemon) {
     types.push(" " + type.type.name);
   });
   if(types.length<2){
-    typesHeadline.innerHTML += "Type:";
+    typesHeadline.innerText += "Type:";
   }else {
-    typesHeadline.innerHTML += "Types:";
+    typesHeadline.innerText += "Types:";
   }
-  typesElement.innerHTML += types.toString();
+  // typesElement.innerHTML += types.toString();
 
   let abilitiesElement = document.createElement('p');
   let abilityHeadline = document.createElement('span');
@@ -159,11 +159,11 @@ function showModal(pokemon) {
     abilities.push(" " + ability.ability.name)
   });
   if(abilities.length<2){
-    abilityHeadline.innerHTML += "Ability:";
+    abilityHeadline.innerText += "Ability:";
   }else{
-    abilityHeadline.innerHTML += "Abilities:";
+    abilityHeadline.innerText += "Abilities:";
   }
-  abilitiesElement.innerHTML += abilities.toString();
+  // abilitiesElement.innerHTML += abilities.toString();
 
 
   modalTitle.append(titleElement);
