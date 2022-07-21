@@ -2,7 +2,6 @@
 
 /* body */
 body {
-  /* background-color: #000; */
   color: #000;
   font-weight:bold;
   text-align: center;
@@ -23,20 +22,21 @@ body {
   padding:0 10px 0 10px;
 }
 
-.btn{
+.btn1{
   background-color: red;
   color: #fff;
   font-size: 1rem;
   font-weight:bold;
-  min-width: 200px;
-  height: 40px;
+  width: 100%;
+  height: 50px;
   border: 2px solid #000;
   cursor:pointer;
 }
 
-.btn:hover{
+.btn1:hover{
   background-color:#000;
   color: #fff;
+  border: none;
 }
 
 .pokeball{
@@ -48,83 +48,19 @@ body {
     display: none
 }
 
-#modal-container{
-  display: none;
+.img-container{
+  display: flex;
 }
 
-#modal-container.is-visible{
-  position: fixed;
-  padding: 20px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  color:#fff;
-
-  z-index: 999;
-
-
-  overflow: auto;
-
-
-  display: grid;
-  text-align: center;
-}
-
-h1{
-  border: 1px solid #3b4cca;
-}
-
-.title{
-  padding: 5px;
-}
-
-.modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: #3b4cca;
-  padding: 15px;
-  width: 100%;
-  max-width: 468px;
-  text-align: left;
-  touch-action: 'none';
-}
-
-.modal-close {
-  float: right;
-  margin-top: -25px;
-  margin-right: -25px;
-  cursor: pointer;
-  color: #ff0011;
-  border: 1px solid #ff0011;
-  border-radius: 50%;
-  background: #fff;
-  font-size: 31px;
-  font-weight: bold;
-  display: inline-block;
-  line-height: 0px;
-  padding: 11px 3px;
-}
-
-.modal-close::before {
-  content: "×";
-}
-
-.modal h1 {
-  margin-top: 0;
+.capitalize{
   text-transform: capitalize;
+  font-style: italic;
+  font-size: 3rem
+  color:#000;
 }
 
-.modal p {
-  margin-bottom: 0;
-  text-transform: capitalize;
-}
+.btn-secondary{
+  background-color: red;
+  border-color: #000;
 
-.pokemon-img {
-  float: right;
-  width: 200px;
-  height: 200px;
 }
