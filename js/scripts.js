@@ -14,7 +14,7 @@ let pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
-
+// loader image
   function showLoader(){
     let loader = document.querySelector('.pokeball');
     loader.classList.remove('hide');
@@ -22,7 +22,7 @@ let pokemonRepository = (function () {
     pokList.classList.add('hide');
   }
 
-
+// hide loader image with setTimeout
   function hideMessage(){
     setTimeout(function(){
         let loader = document.querySelector('.pokeball');
@@ -46,7 +46,7 @@ let pokemonRepository = (function () {
     });
   }
 
-
+// Add the List items
   function addListItems(pokemon){
     let pokemonNewList = document.querySelector('.pokemon-List');
     let listItem = document.createElement('li');
@@ -54,12 +54,12 @@ let pokemonRepository = (function () {
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#exampleModalCenter');
     button.innerText = pokemon.name;
-    button.classList.add('btn1','group-list-item');
+    button.classList.add('btn1','group-list-item', 'capitalize');
     listItem.appendChild(button);
     pokemonNewList.appendChild(listItem);
     addEvent(button, pokemon);
   }
-
+// load the list of pokemon
   function loadList(){
     showLoader();
     return fetch(apiUrl).then(function (response) {
@@ -78,7 +78,7 @@ let pokemonRepository = (function () {
       console.error(e);
     })
   }
-
+// load the details of the pokemon
   function loadDetails(item) {
     showLoader();
     let url = item.detailsUrl;
@@ -107,7 +107,8 @@ function showModal(pokemon) {
   modalWeight= $(".pokemon-weight");
   modalTypes= $(".pokemon-types");
   modalHeadline =$(".pokemon-types-headline");
-  modalAbilities = $('.pokemon-abilities');
+  modalAbilities = $(".pokemon-abilities");
+  modalAbilityHeadline = $(".abilities-headline");
 
 
   modalTitle.empty();
@@ -118,10 +119,11 @@ function showModal(pokemon) {
   modalTypes.empty();
   modalHeadline.empty();
   modalAbilities.empty();
+  modalAbilityHeadline.empty();
 
   let titleElement = document.createElement('h1');
   titleElement.innerText = pokemon.name;
-  titleElement.classList.add('capitalize')
+  titleElement.classList.add('capitalize', 'font-deco')
 
   let imageFront = document.createElement('img');
   imageFront.classList.add('d-block', 'w-100');
@@ -144,17 +146,23 @@ function showModal(pokemon) {
     types.push(" " + type.type.name);
   });
   if(types.length<2){
-    typesHeadline.innerHTML += "Type";
+    typesHeadline.innerHTML += "Type:";
   }else {
-    typesHeadline.innerHTML += "Types"
+    typesHeadline.innerHTML += "Types:";
   }
   typesElement.innerHTML += types.toString();
 
   let abilitiesElement = document.createElement('p');
+  let abilityHeadline = document.createElement('span');
   let abilities = [];
   pokemon.abilities.forEach(function(ability){
     abilities.push(" " + ability.ability.name)
   });
+  if(abilities.length<2){
+    abilityHeadline.innerHTML += "Ability:";
+  }else{
+    abilityHeadline.innerHTML += "Abilities:";
+  }
   abilitiesElement.innerHTML += abilities.toString();
 
 
@@ -166,6 +174,7 @@ function showModal(pokemon) {
   modalHeadline.append(typesHeadline);
   modalTypes.append(typesElement);
   modalAbilities.append(abilitiesElement);
+  modalAbilityHeadline.append(abilityHeadline);
 }
 
 
