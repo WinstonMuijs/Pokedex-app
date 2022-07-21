@@ -54,6 +54,10 @@ body {
 
 .capitalize{
   text-transform: capitalize;
+}
+
+.font-deco{
+  font-weight: 900;
   font-style: italic;
   font-size: 3rem
   color:#000;
@@ -63,4 +67,9 @@ body {
   background-color: red;
   border-color: #000;
 
+}
+
+.bold{
+  font-style: italic;
+  font-weight: bolder;
 }
