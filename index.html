@@ -16,6 +16,7 @@
   <!-- start body -->
   <body>
     <header>
+      <!-- navigation -->
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">
           <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pokémon_logo.svg" width="200" height="80" alt="Pokemon-logo">
@@ -34,7 +35,9 @@
           </ul>
         </div>
       </nav>
+      <!-- end navigation -->
     </header>
+    <!-- Header and loader -->
     <main class="container page-container">
       <div class="row">
         <div class="col-xs-2 col-md-4"></div>
@@ -45,7 +48,40 @@
         </div>
         <div class="col-xs-2 col-md-4"></div>
       </div>
-      <div id='modal-container'></div>
+      <!-- Bootstrap Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body m-0 p-0">
+               <div class="col img-container m-0 p-0">
+                 <div class="col-6 border-bottom pokemon-img-front"></div>
+                 <div class="col-6 border-bottom pokemon-img-back"></div>
+               </div>
+               <div class="container-fluid">
+                 <div class="row">
+                   <div class="col-6 col-md-2 py-2 border-bottom height">Height:</div>
+                   <div class="col-6 col-md-4 py-2 border-bottom pokemon-height"></div>
+                   <div class="col-6 col-md-2 py-2 border-bottom weight">Weight:</div>
+                   <div class="col-6 col-md-4 py-2 border-bottom pokemon-weight"></div>
+                   <div class="col-6 col-md-2 py-2 border-bottom pokemon-types-headline">Types:</div>
+                   <div class="col-6 col-md-4 py-2 border-bottom pokemon-types"></div>
+                   <div class="col-6 col-md-2 py-2 border-bottom abilities">Abilities:</div>
+                   <div class="col-6 col-md-4 py-2 border-bottom pokemon-abilities"></div>
+                 </div>
+               </div>
+             </div>
+             <div class="modal-footer justify-content-between">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+          </div>
+        </div>
+      </div>
     </main>
     <!-- Bootstrap JQuery, Pooper and Javascript -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
