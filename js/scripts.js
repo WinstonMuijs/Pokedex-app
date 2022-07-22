@@ -2,6 +2,7 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+
 //Add a pokemonObject to the pokemonList
   function add(pokemon) {
     if(typeof pokemon === 'object' && 'name' in pokemon && 'detailsUrl' in pokemon){
@@ -14,6 +15,30 @@ let pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
+
+  function findPokemon(name){
+    let result = pokemonList.filter(pokemon => pokemon.name.startsWith(name));
+    if(result.length > 0){
+      return result[0];
+    }else{
+      $("#search-input").tooltip('show');
+      $(document).on('click', function(){
+        $("#search-input").tooltip('hide');
+      });
+    }
+  }
+
+  $("#search-form").submit(e => {
+    e.preventDefault();
+    $("#search-input").tooltip('hide');
+    let searchInput = $("#search-input").val().toLowerCase();
+    let result = findPokemon(searchInput);
+    if(result){
+      showDetails(result);
+      $("#exampleModalCenter").modal('show');
+    }
+  });
+
 // loader image
   function showLoader(){
     let loader = document.querySelector('.pokeball');
@@ -51,10 +76,11 @@ let pokemonRepository = (function () {
     let pokemonNewList = document.querySelector('.pokemon-List');
     let listItem = document.createElement('li');
     let button = document.createElement('button');
+    listItem.classList.add('nav-item');
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#exampleModalCenter');
     button.innerText = pokemon.name;
-    button.classList.add('btn1','group-list-item', 'capitalize');
+    button.classList.add('btn1','group-list-item', 'capitalize', 'group-list-item-action');
     listItem.appendChild(button);
     pokemonNewList.appendChild(listItem);
     addEvent(button, pokemon);
@@ -146,11 +172,11 @@ function showModal(pokemon) {
     types.push(" " + type.type.name);
   });
   if(types.length<2){
-    typesHeadline.innerText += "Type:";
+    typesHeadline.innerHTML += "Type:";
   }else {
-    typesHeadline.innerText += "Types:";
+    typesHeadline.innerHTML += "Types:";
   }
-  // typesElement.innerHTML += types.toString();
+  typesElement.innerHTML += types.toString();
 
   let abilitiesElement = document.createElement('p');
   let abilityHeadline = document.createElement('span');
@@ -159,11 +185,11 @@ function showModal(pokemon) {
     abilities.push(" " + ability.ability.name)
   });
   if(abilities.length<2){
-    abilityHeadline.innerText += "Ability:";
+    abilityHeadline.innerHTML += "Ability:";
   }else{
-    abilityHeadline.innerText += "Abilities:";
+    abilityHeadline.innerHTML += "Abilities:";
   }
-  // abilitiesElement.innerHTML += abilities.toString();
+  abilitiesElement.innerHTML += abilities.toString();
 
 
   modalTitle.append(titleElement);
@@ -186,7 +212,8 @@ function showModal(pokemon) {
     getAll: getAll,
     showDetails: showDetails,
     loadList: loadList,
-    loadDetails: loadDetails
+    loadDetails: loadDetails,
+    findPokemon:findPokemon
 
 
   };
