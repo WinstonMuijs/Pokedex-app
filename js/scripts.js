@@ -11,7 +11,7 @@ let pokemonRepository = (function() {
     ) {
       pokemonList.push(pokemon);
     } else {
-      console.log("It's not a Pokemon");
+      console.log('It\'s not a Pokemon');
     }
   }
   //Get All pokemonObjets in the pokemonList
@@ -24,23 +24,24 @@ let pokemonRepository = (function() {
     if (result.length > 0) {
       return result[0];
     } else {
-      $('#search-input').tooltip('show');
-      $(document).on('click', function() {
-        $('#search-input').tooltip('hide');
+      document.querySelector('#search-input').tooltip('show');
+      document.querySelector(document).addEventListener('click', function() {
+        document.querySelector('#search-input').tooltip('hide');
       });
     }
   }
 
-  $('#search-form').submit(e => {
+  document.querySelector('#search-form').submit(e => {
     e.preventDefault();
-    $('#search-input').tooltip('hide');
-    let searchInput = $('#search-input')
+    document.querySelector('#search-input').tooltip('hide');
+    let searchInput = document
+      .querySelector('#search-input')
       .val()
       .toLowerCase();
     let result = findPokemon(searchInput);
     if (result) {
       showDetails(result);
-      $('#exampleModalCenter').modal('show');
+      document.querySelector('#exampleModalCenter').modal('show');
     }
   });
 
