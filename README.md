@@ -3,20 +3,21 @@ a Pokédex application that displays a list of Pokémon and allows the user to v
 
 ### Key Features
 
-###Features:
+### Features:
   
 * Load data from <a href="https://pokeapi.co">PokeAPI</a>
 * View a list of Pokemons
 * On user action, view details of that Pokemon
 
 ### Built with:
+
 * JavaScript
 * Bootstrap
 * jQuery
 * HTML
 * CSS
 
-### creenshot<h3>
+### Screenshot<h3>
   
 <img src="">
 
