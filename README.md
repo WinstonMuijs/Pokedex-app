@@ -19,6 +19,6 @@ a Pokédex application that displays a list of Pokémon and allows the user to v
 
 ### Screenshot<h3>
   
-<img src="">
+<img src="_Users_winstonhenrimuijs_Documents_Pokedex-app_index.html(iPhone 6_7_8).png">
 
 #### Link: <a href="https://winstonmuijs.github.io/Pokedex-app/">https://winstonmuijs.github.io/Pokedex-app/</a>
