@@ -19,32 +19,6 @@ let pokemonRepository = (function() {
     return pokemonList;
   }
 
-  function findPokemon(name) {
-    let result = pokemonList.filter(pokemon => pokemon.name.startsWith(name));
-    if (result.length > 0) {
-      return result[0];
-    } else {
-      document.querySelector('#search-input').tooltip('show');
-      document.querySelector(document).addEventListener('click', function() {
-        document.querySelector('#search-input').tooltip('hide');
-      });
-    }
-  }
-
-  document.querySelector('#search-form').submit(e => {
-    e.preventDefault();
-    document.querySelector('#search-input').tooltip('hide');
-    let searchInput = document
-      .querySelector('#search-input')
-      .val()
-      .toLowerCase();
-    let result = findPokemon(searchInput);
-    if (result) {
-      showDetails(result);
-      document.querySelector('#exampleModalCenter').modal('show');
-    }
-  });
-
   // loader image
   function showLoader() {
     let loader = document.querySelector('.pokeball');
