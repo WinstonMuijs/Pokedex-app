@@ -32,11 +32,11 @@ let pokemonRepository = (function() {
     setTimeout(function() {
       let loader = document.querySelector('.pokeball');
       loader.classList.add('hide');
-    }, 1000);
+    },100);
     setTimeout(function() {
       let pokList = document.querySelector('.pokemon-List');
       pokList.classList.remove('hide');
-    }, 2000);
+    }, 500);
   }
   //Shows the details of pokemonObjects
   function showDetails(pokemon) {
@@ -117,15 +117,15 @@ let pokemonRepository = (function() {
 
   // Modal
   function showModal(pokemon) {
-    let modalTitle = document.querySelector('.modal-title');
-    let modalImageFront = document.querySelector('.pokemon-img-front');
-    let modalImageBack = document.querySelector('.pokemon-img-back');
-    let modalHeight = document.querySelector('.pokemon-height');
-    let modalWeight = document.querySelector('.pokemon-weight');
-    let modalTypes = document.querySelector('.pokemon-types');
-    let modalHeadline = document.querySelector('.pokemon-types-headline');
-    let modalAbilities = document.querySelector('.pokemon-abilities');
-    let modalAbilityHeadline = document.querySelector('.abilities-headline');
+    let modalTitle = $('.modal-title');
+    let modalImageFront = $('.pokemon-img-front');
+    let modalImageBack = $('.pokemon-img-back');
+    let modalHeight = $('.pokemon-height');
+    let modalWeight = $('.pokemon-weight');
+    let modalTypes = $('.pokemon-types');
+    let modalHeadline = $('.pokemon-types-headline');
+    let modalAbilities = $('.pokemon-abilities');
+    let modalAbilityHeadline = $('.abilities-headline');
 
     modalTitle.empty();
     modalImageFront.empty();
@@ -199,8 +199,7 @@ let pokemonRepository = (function() {
     getAll: getAll,
     showDetails: showDetails,
     loadList: loadList,
-    loadDetails: loadDetails,
-    findPokemon: findPokemon
+    loadDetails: loadDetails
   };
 })();
 
