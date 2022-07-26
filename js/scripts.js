@@ -192,6 +192,23 @@ let pokemonRepository = (function() {
     modalAbilityHeadline.append(abilityHeadline);
   }
 
+  let list = document.querySelector('.pokemon-List')
+  const searchForm = document.forms["search-form"].querySelector('input');
+  searchForm.addEventListener("keyup", function(e){
+    const term = e.target.value.toLowerCase();
+  // So far so good...But then...
+    const Itemlist = list.getElementsByTagName('li');
+  //here is where the ttrouble begins, because the browser says: list.getElementsByTagName('li'); is not a function.
+    Array.from(Itemlist).forEach(function(item){
+      const name = item.firstElementChild.textContent;
+      if(name.toLowerCase().indexOf(term) != -1){
+        item.style.display ='block';
+      }else{
+        item.style.display = 'none';
+      }
+    });
+  });
+
   //Returns the functions of IIFE
   return {
     add: add,
